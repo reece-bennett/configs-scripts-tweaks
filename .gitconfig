@@ -1,0 +1,17 @@
+[user]
+  name = Reece Bennett
+  email = reece.bennett1@gmail.com
+
+[alias]
+  ec = config --global --edit
+  co = checkout
+  st = status
+  cm = commit
+  fa = fetch -ap
+  dhead = remote set-head origin -d
+  lg = log --graph --author-date-order --abbrev-commit --pretty=format:'%C(bold yellow)%h%Creset - %s %n%Cgreen(%ar) %C(bold blue)<%an>%Creset%C(auto)%d%Creset%n'
+  lga = !git lg --all
+  
+[core]
+  editor = vim -c startinsert
+	pager = less -FRX
