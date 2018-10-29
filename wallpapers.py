@@ -58,4 +58,3 @@ for f in files:
 
     print("{} : {}x{} : {}".format(f, width, height, ratio))
 
-input("Press enter to exit...")
