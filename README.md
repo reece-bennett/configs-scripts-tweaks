@@ -17,6 +17,7 @@ A collection of configuration files for various command line utilities, useful s
 - [Spotify](https://www.spotify.com/uk/)
 - [VLC Media Player](https://www.videolan.org/vlc/index.en-GB.html)
 - [Transmission](https://transmissionbt.com/download/)
+- [FastStone Image Viewer](http://www.faststone.org/FSViewerDownload.htm)
 
 ### Gaming
 
