@@ -14,4 +14,4 @@
   
 [core]
   editor = vim -c startinsert
-	pager = less -FRX
+  pager = less -FRX
