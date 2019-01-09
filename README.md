@@ -37,6 +37,12 @@ A collection of configuration files for various command line utilities, useful s
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Typora (visual Markdown editor)](https://typora.io/)
 
+## Git bash prompt
+
+Overwrite `C:\Program Files\Git\etc\profile.d\git-prompt.sh` (create a backup first).
+
+Make sure that this file is saved with LF line endings!
+
 ## Windows 10 Tweaks
 
 - [Remove the 3D objects folder from quick start](https://www.thewindowsclub.com/remove-3d-objects-folder-winows-10)
