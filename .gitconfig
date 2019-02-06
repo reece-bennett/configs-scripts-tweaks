@@ -14,4 +14,18 @@
   
 [core]
   editor = vim -c startinsert
-  pager = less -FRX
+  pager = diff-so-fancy | less --tabs=4 -RFX
+  autocrlf = true
+  
+# Better colours for diff (npm install -g diff-so-fancy)
+[color "diff-highlight"]
+  oldNormal = red
+  oldHighlight = red 52
+  newNormal = green
+  newHighlight = green 22
+
+[color "diff"]
+  meta = yellow
+  frag = magenta bold
+  commit = yellow bold
+  whitespace = red reverse
