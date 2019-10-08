@@ -9,7 +9,7 @@
   cm = commit
   fa = fetch -ap
   dhead = remote set-head origin -d
-  lg = log --graph --author-date-order --abbrev-commit --pretty=format:'%C(bold yellow)%h%Creset - %s %n%Cgreen(%ar) %C(bold blue)<%an>%Creset%C(auto)%d%Creset%n'
+  lg = log --graph --author-date-order --abbrev-commit --pretty=format:'%C(bold yellow)%h%Creset %s %n%Cgreen(%ar) %C(bold blue)<%an>%Creset%C(auto)%d%Creset%n'
   lga = !git lg --all
   
 [core]
