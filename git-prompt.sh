@@ -1,3 +1,7 @@
+GIT_PS1_SHOWDIRTYSTATE='true'
+GIT_PS1_SHOWUNTRACKEDFILES='true'
+GIT_PS1_SHOWUPSTREAM='verbose'
+
 if test -f /etc/profile.d/git-sdk.sh
 then
 	TITLEPREFIX=SDK-${MSYSTEM#MINGW}
@@ -10,10 +14,7 @@ then
 	. ~/.config/git/git-prompt.sh
 else
 	PS1='\[\033]0;Git Bash\007\]' # set window title
-	PS1="$PS1"'\n'                 # new line
-	PS1="$PS1"'\[\033[32m\]'       # change to green
-	PS1="$PS1"'\u@\h '             # user@host<space>
-	PS1="$PS1"'\[\033[93m\]'       # change to yellow
+	PS1="$PS1"'\[\033[33m\]'       # change to yellow
 	PS1="$PS1"'\w'                 # current working directory
 	if test -z "$WINELOADERNOEXEC"
 	then
@@ -29,9 +30,8 @@ else
 			PS1="$PS1"'`__git_ps1`'   # bash function
 		fi
 	fi
-	PS1="$PS1"'\[\033[0m\]'        # change color
-	PS1="$PS1"'\n'                 # new line
-	PS1="$PS1"'λ '                 # prompt: always λ
+	PS1="$PS1"'\[\033[0m\]'        # reset color
+	PS1="$PS1"' λ '                 # prompt: always λ
 fi
 
 MSYS2_PS1="$PS1"               # for detection by MSYS2 SDK's bash.basrc
