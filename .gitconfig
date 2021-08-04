@@ -2,6 +2,10 @@
   name = Reece Bennett
   email = reece.bennett1@gmail.com
 
+# Conditional include to change email when in work directory
+[includeIf "gitdir:defra/"]
+  path = .gitconfig-work
+
 [alias]
   ec = config --global --edit
   co = checkout
@@ -11,21 +15,28 @@
   dhead = remote set-head origin -d
   lg = log --graph --author-date-order --abbrev-commit --pretty=format:'%C(bold yellow)%h%Creset %s %n%Cgreen(%ar) %C(bold blue)<%an>%Creset%C(auto)%d%Creset%n'
   lga = !git lg --all
-  
-[core]
-  editor = vim -c startinsert
-  pager = diff-so-fancy | less --tabs=4 -RFX
-  autocrlf = true
-  
-# Better colours for diff (npm install -g diff-so-fancy)
-[color "diff-highlight"]
-  oldNormal = red
-  oldHighlight = red 52
-  newNormal = green
-  newHighlight = green 22
+  resetorigin = reset --hard "@{upstream}"
 
+[core]
+  editor = vim
+  pager = diff-so-fancy | less --tabs=2 -RFX
+
+[color]
+  ui = auto
+  branch = auto
+  diff = auto
+  status = auto
 [color "diff"]
-  meta = yellow
+  meta = 11
   frag = magenta bold
   commit = yellow bold
+  old = red bold
+  new = green bold
   whitespace = red reverse
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+[pull]
+	ff = only
