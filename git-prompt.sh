@@ -1,6 +1,8 @@
-GIT_PS1_SHOWDIRTYSTATE='true'
-GIT_PS1_SHOWUNTRACKEDFILES='true'
-GIT_PS1_SHOWUPSTREAM='verbose'
+# These allow git_ps1 to show repo file status, disabled because they have bad
+# performance when the prompt is run
+# GIT_PS1_SHOWDIRTYSTATE='true'
+# GIT_PS1_SHOWUNTRACKEDFILES='true'
+# GIT_PS1_SHOWUPSTREAM='verbose'
 
 if test -f /etc/profile.d/git-sdk.sh
 then
@@ -13,7 +15,7 @@ if test -f ~/.config/git/git-prompt.sh
 then
 	. ~/.config/git/git-prompt.sh
 else
-	PS1='\[\033]0;Git Bash\007\]' # set window title
+	PS1='\[\033]0;Git Bash\007\]'  # set window title
 	PS1="$PS1"'\[\033[33m\]'       # change to yellow
 	PS1="$PS1"'\w'                 # current working directory
 	if test -z "$WINELOADERNOEXEC"
@@ -30,8 +32,8 @@ else
 			PS1="$PS1"'`__git_ps1`'   # bash function
 		fi
 	fi
-	PS1="$PS1"'\[\033[0m\]'        # reset color
-	PS1="$PS1"' λ '                 # prompt: always λ
+	PS1="$PS1"'\[\033[0m\]'       # reset color
+	PS1="$PS1"' $ '               # prompt: always $
 fi
 
-MSYS2_PS1="$PS1"               # for detection by MSYS2 SDK's bash.basrc
+MSYS2_PS1="$PS1"                # for detection by MSYS2 SDK's bash.basrc

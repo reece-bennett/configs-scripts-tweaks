@@ -19,24 +19,15 @@
 
 [core]
   editor = vim
-  pager = diff-so-fancy | less --tabs=2 -RFX
+  # Un-comment to checkout and commit LF on windows
+  # autocrlf = false
+  # eol = lf
 
 [color]
   ui = auto
   branch = auto
   diff = auto
   status = auto
-[color "diff"]
-  meta = 11
-  frag = magenta bold
-  commit = yellow bold
-  old = red bold
-  new = green bold
-  whitespace = red reverse
-[color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
+  
 [pull]
-	ff = only
+  ff = only
