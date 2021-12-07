@@ -39,7 +39,7 @@ A collection of configuration files for various command line utilities, useful s
 
 ## Git bash prompt
 
-Overwrite `C:\Program Files\Git\etc\profile.d\git-prompt.sh` (create a backup first).
+Copy to `~/.config/git/git-prompt.sh`.
 
 Make sure that this file is saved with LF line endings!
 
