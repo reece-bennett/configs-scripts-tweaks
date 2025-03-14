@@ -16,14 +16,17 @@
   lg = log --graph --author-date-order --abbrev-commit --pretty=format:'%C(bold yellow)%h%Creset %s %n%Cgreen(%ar) %C(bold blue)<%an>%Creset%C(auto)%d%Creset%n'
   lga = !git lg --all
   resetorigin = reset --hard "@{upstream}"
-  cleanup = "!git branch --merged master | grep --invert-match --extended-regexp '\\*|master' | xargs git branch -d"
+  main-branch = "!git branch | grep -E -o -m1 '^(\\*| ) (main|master|dev)$' | grep -E -o '[a-z]+'"
+  delete-merged = "!git branch --merged $(git main-branch) | grep --invert-match --extended-regexp \"\\*|\\b$(git main-branch)\\b\" | xargs git branch -d"
+  delete-squashed = "!f() { local currentBranch=$(git symbolic-ref --short HEAD) && local targetBranch=$(git main-branch) && git checkout -q $targetBranch && git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d && git for-each-ref refs/heads/ \"--format=%(refname:short)\" | while read branch; do mergeBase=$(git merge-base $targetBranch $branch) && [[ $(git cherry $targetBranch $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == \"-\"* ]] && git branch -D $branch; done; git checkout -q $currentBranch; }; f"
+  cleanup = "!git delete-merged && git delete-squashed"
 
 [core]
   editor = vim
   # Un-comment to checkout and commit LF on windows
   # autocrlf = false
   # eol = lf
-  
+
 [pull]
   ff = only
 
